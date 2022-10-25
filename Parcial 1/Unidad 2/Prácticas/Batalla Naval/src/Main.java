@@ -148,8 +148,9 @@ public class Main {
             int puntajeP1 = 0;
             int puntajeP2 = 0;
 
+            System.out.println("Es momento de jugar!!!");
             while (!estadoPartida) {
-                System.out.println("Es momento de jugar!!!\nTurno del jugador 1\nIngresa las coordenadas a derribar");
+                System.out.println("Turno del jugador 1\nIngresa las coordenadas a derribar");
                 System.out.print("Y:");
                 jugadorYp1[i] = scanner.nextInt();
 //                System.out.println(jugadorYp1[i]);
@@ -158,8 +159,9 @@ public class Main {
 //                System.out.println(jugadorXp1[i]);
 
                 if (jugadorYp1[i] == posicionYp2[i] && jugadorXp1[i] == posicionXp2[i]){
-                    System.out.println("¡BOOOOMM! Barco derrivado");
+                    System.out.print("¡BOOOOMM! Barco derrivado");
                     puntajeP1++;
+                    System.out.print("\nPuntaje actual: " + puntajeP1 + "/" + nbarcos + "\n");
 
                     if (puntajeP1 == nbarcos){
                         System.out.println("¡¡FELICIDADES!! Jugador 1 ha ganado");
@@ -175,6 +177,7 @@ public class Main {
                 if (jugadorYp2[i] == posicionYp1[i] && jugadorXp2[i] == posicionXp1[i]){
                     System.out.println("¡BOOOOMM! Barco derrivado");
                     puntajeP2++;
+                    System.out.print("\nPuntaje actual: " + puntajeP2 + "/" + nbarcos + "\n");
 
                     if (puntajeP2 == nbarcos){
                         System.out.println("¡¡FELICIDADES!! Jugador 2 ha ganado (te ganó una maquina xd)");
@@ -183,7 +186,11 @@ public class Main {
                     }
                 }
 
-                i++;
+                if (i == nbarcos - 1 ){
+                    i = 0;
+                } else {
+                    i++;
+                }
             }
 
 
