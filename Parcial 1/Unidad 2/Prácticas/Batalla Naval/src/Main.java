@@ -139,18 +139,52 @@ public class Main {
 
             //ADIVINANDO BARCOS
             boolean estadoPartida = false;
+            int[] jugadorYp1 = new int[nCasillas];
+            int[] jugadorXp1 = new int[nCasillas];
+            int[] jugadorYp2 = new int[nCasillas];
+            int[] jugadorXp2 = new int[nCasillas];
 
+            int i = 0;
+            int puntajeP1 = 0;
+            int puntajeP2 = 0;
 
-            while(!estadoPartida){
+            while (!estadoPartida) {
+                System.out.println("Es momento de jugar!!!\nTurno del jugador 1\nIngresa las coordenadas a derribar");
+                System.out.print("Y:");
+                jugadorYp1[i] = scanner.nextInt();
+//                System.out.println(jugadorYp1[i]);
+                System.out.print("X:");
+                jugadorXp1[i] = scanner.nextInt();
+//                System.out.println(jugadorXp1[i]);
 
+                if (jugadorYp1[i] == posicionYp2[i] && jugadorXp1[i] == posicionXp2[i]){
+                    System.out.println("¡BOOOOMM! Barco derrivado");
+                    puntajeP1++;
 
+                    if (puntajeP1 == nbarcos){
+                        System.out.println("¡¡FELICIDADES!! Jugador 1 ha ganado");
+                        System.out.println("Gracias por jugar");
+                        estadoPartida = true;
+                    }
+                }
 
+                System.out.println("Es turno del jugador 2\n Ingresa las coordenadas a derribar");
+                jugadorYp2[i] = (int)(Math.random()*tablefroFilas+1);
+                jugadorXp2[i] = (int)(Math.random()*tableroColumnas+1);
+                System.out.println("El segundo jugador tiró en Y:" + jugadorYp2[i] + " y en X:" + jugadorXp2[i]);
+                if (jugadorYp2[i] == posicionYp1[i] && jugadorXp2[i] == posicionXp1[i]){
+                    System.out.println("¡BOOOOMM! Barco derrivado");
+                    puntajeP2++;
 
+                    if (puntajeP2 == nbarcos){
+                        System.out.println("¡¡FELICIDADES!! Jugador 2 ha ganado (te ganó una maquina xd)");
+                        System.out.println("Gracias por jugar");
+                        estadoPartida = true;
+                    }
+                }
+
+                i++;
             }
-
-
-
-
 
 
 //            int[] intentosY = new int[nCasillas - 1];
