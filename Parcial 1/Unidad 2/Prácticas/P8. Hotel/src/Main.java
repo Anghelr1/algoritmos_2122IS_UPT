@@ -6,7 +6,7 @@ public class Main {
         /*====== Seleccion de menu ====== */
         int opcion = 0;
         /*====== Variables cantidad de personas por piso ====== */
-        int NPpiso1 = 0, NPpiso2 = 0, NPpiso3 = 0, NPpiso4 = 0, NPpiso5 = 0;
+        int NPpiso1 = 0, NPpiso2 = 0, NPpiso3 = 0, NPpiso4 = 0, NPpiso5 = 0, PB = 0;
         /*====== Estado del programa ====== */
         boolean estadoP = false;
 
@@ -145,6 +145,7 @@ public class Main {
             } else if (opcion == 2) {
                 /*====== Numero de piso ====== */
                 int nPiso = 0;
+                /*====== Bandera si piso no existe ====== */
                 boolean vfPiso = false;
                 /*====== Solicitando datos ====== */
                 System.out.print("Ingresa el piso que deseas consultar: ");
@@ -161,30 +162,180 @@ public class Main {
                 }
 
                 /*====== Mostrando numero de personas por piso ====== */
-                if (nPiso == 1){
+                if (nPiso == 1) {
                     System.out.println("Hay " + NPpiso1 + " personas en el piso " + nPiso);
-                }else if (nPiso == 2){
+                } else if (nPiso == 2) {
                     System.out.println("Hay " + NPpiso2 + " personas en el piso " + nPiso);
-                }else if (nPiso == 3){
+                } else if (nPiso == 3) {
                     System.out.println("Hay " + NPpiso3 + " personas en el piso " + nPiso);
-                }else if (nPiso == 4){
+                } else if (nPiso == 4) {
                     System.out.println("Hay " + NPpiso4 + " personas en el piso " + nPiso);
-                }else if (nPiso == 5){
+                } else if (nPiso == 5) {
                     System.out.println("Hay " + NPpiso5 + " personas en el piso " + nPiso);
                 }
 
 
             } else if (opcion == 3) {
+                /*====== Piso de donde bajar a las personas  ====== */
+                int nPiso = 0;
+                /*====== Bandera para verificar si el numero de piso existe ====== */
+                boolean vfPiso = false;
+                /*====== Solicitando dato ====== */
+                System.out.print("De que piso deseas bajar a las personas: ");
+                nPiso = lector.nextInt();
+
+                /*====== Verificando si el piso ingresado existe ====== */
+                while (!vfPiso) {
+                    if (nPiso > 5) {
+                        System.out.print("El numero de piso ingresado no existe, intenta de nuevo: ");
+                        nPiso = lector.nextInt();
+                    } else {
+                        vfPiso = true;
+                    }
+                }
+
+                /*====== Bajando personas del piso seleccionado a la planta baja ====== */
+                int tanda = 0, diferencia = 0;
+                if (nPiso == 1) {
+                    int tandaPersonas = NPpiso1 + 5;
+                    while (tandaPersonas > 0) {
+                        tandaPersonas -= 5;
+                        tanda += 5;
+                        if (tanda > NPpiso1) {
+                            tanda -= 5;
+                            diferencia = NPpiso1 - tanda;
+                            tanda += diferencia;
+                            PB += diferencia;
+                            if (diferencia > 0) {
+                                System.out.println("Bajando: " + diferencia + " personas.");
+                            }
+                        } else {
+                            System.out.println("Bajando: 5 personas.");
+                            PB += 5;
+                        }
+                    }
+                    NPpiso1 = 0;
+                    System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja y " + NPpiso1 + " personas en el piso " + nPiso);
+                } else if (nPiso == 2) {
+                    int tandaPersonas = NPpiso2 + 5;
+                    while (tandaPersonas > 0) {
+                        tandaPersonas -= 5;
+                        tanda += 5;
+                        if (tanda > NPpiso2) {
+                            tanda -= 5;
+                            diferencia = NPpiso2 - tanda;
+                            tanda += diferencia;
+                            PB += diferencia;
+                            if (diferencia > 0) {
+                                System.out.println("Bajando: " + diferencia + " personas.");
+                            }
+                        } else {
+                            System.out.println("Bajando: 5 personas.");
+                            PB += 5;
+                        }
+                    }
+                    NPpiso2 = 0;
+                    System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja y " + NPpiso2 + " personas en el piso " + nPiso);
+                } else if (nPiso == 3) {
+                    int tandaPersonas = NPpiso3 + 5;
+                    while (tandaPersonas > 0) {
+                        tandaPersonas -= 5;
+                        tanda += 5;
+                        if (tanda > NPpiso3) {
+                            tanda -= 5;
+                            diferencia = NPpiso3 - tanda;
+                            tanda += diferencia;
+                            PB += diferencia;
+                            if (diferencia > 0) {
+                                System.out.println("Bajando: " + diferencia + " personas.");
+                            }
+                        } else {
+                            System.out.println("Bajando: 5 personas.");
+                            PB += 5;
+                        }
+                    }
+                    NPpiso3 = 0;
+                    System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja y " + NPpiso3 + " personas en el piso " + nPiso);
+                } else if (nPiso == 4) {
+                    int tandaPersonas = NPpiso4 + 5;
+                    while (tandaPersonas > 0) {
+                        tandaPersonas -= 5;
+                        tanda += 5;
+                        if (tanda > NPpiso4) {
+                            tanda -= 5;
+                            diferencia = NPpiso4 - tanda;
+                            tanda += diferencia;
+                            PB += diferencia;
+                            if (diferencia > 0) {
+                                System.out.println("Bajando: " + diferencia + " personas.");
+                            }
+                        } else {
+                            System.out.println("Bajando: 5 personas.");
+                            PB += 5;
+                        }
+                    }
+                    NPpiso4 = 0;
+                    System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja y " + NPpiso4 + " personas en el piso " + nPiso);
+                } else if (nPiso == 5) {
+                    int tandaPersonas = NPpiso5 + 5;
+                    while (tandaPersonas > 0) {
+                        tandaPersonas -= 5;
+                        tanda += 5;
+                        if (tanda > NPpiso5) {
+                            tanda -= 5;
+                            diferencia = NPpiso5 - tanda;
+                            tanda += diferencia;
+                            PB += diferencia;
+                            if (diferencia > 0) {
+                                System.out.println("Bajando: " + diferencia + " personas.");
+                            }
+                        } else {
+                            System.out.println("Bajando: 5 personas.");
+                            PB += 5;
+                        }
+                    }
+                    NPpiso5 = 0;
+                    System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja y " + NPpiso5 + " personas en el piso " + nPiso);
+                }
+
 
             } else if (opcion == 4) {
+                /*====== Piso de donde bajar a las personas  ====== */
+                int CNpisos = NPpiso1 + NPpiso2 + NPpiso3 + NPpiso4 + NPpiso5;
 
+                /*====== Bajando personas del piso seleccionado a la planta baja ====== */
+                int tanda = 0, diferencia = 0;
+                int tandaPersonas = CNpisos + 5;
+                while (tandaPersonas > 0) {
+                    tandaPersonas -= 5;
+                    tanda += 5;
+                    if (tanda > CNpisos) {
+                        tanda -= 5;
+                        diferencia = CNpisos - tanda;
+                        tanda += diferencia;
+                        PB += diferencia;
+                        if (diferencia > 0) {
+                            System.out.println("Bajando: " + diferencia + " personas.");
+                        }
+                    } else {
+                        System.out.println("Bajando: 5 personas.");
+                        PB += 5;
+                    }
+                }
+                CNpisos = 0;
+                NPpiso1 = 0;
+                NPpiso2 = 0;
+                NPpiso3 = 0;
+                NPpiso4 = 0;
+                NPpiso5 = 0;
+                System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja.");
             } else if (opcion == 5) {
 
             } else if (opcion == 6) {
                 System.out.print("¡Nos vemos!!");
                 estadoP = true;
             }
-            estadoP = true;
+//            estadoP = true;
         }
     }
 
