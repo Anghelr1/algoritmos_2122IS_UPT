@@ -40,7 +40,7 @@ public class Main {
 
                 /*====== Verificando si el piso ingresado existe ====== */
                 while (!vfPiso) {
-                    if (nPiso > 5) {
+                    if (nPiso > 5 || nPiso < 1) {
                         System.out.print("El numero de piso ingresado no existe, intenta de nuevo: ");
                         nPiso = lector.nextInt();
                     } else {
@@ -153,7 +153,7 @@ public class Main {
 
                 /*====== Verificando si el piso ingresado existe ====== */
                 while (!vfPiso) {
-                    if (nPiso > 5) {
+                    if (nPiso > 5 || nPiso < 1) {
                         System.out.print("El numero de piso ingresado no existe, intenta de nuevo: ");
                         nPiso = lector.nextInt();
                     } else {
@@ -186,7 +186,7 @@ public class Main {
 
                 /*====== Verificando si el piso ingresado existe ====== */
                 while (!vfPiso) {
-                    if (nPiso > 5) {
+                    if (nPiso > 5 || nPiso < 1) {
                         System.out.print("El numero de piso ingresado no existe, intenta de nuevo: ");
                         nPiso = lector.nextInt();
                     } else {
@@ -300,10 +300,10 @@ public class Main {
 
 
             } else if (opcion == 4) {
-                /*====== Piso de donde bajar a las personas  ====== */
+                /*====== Suma de todos los ocupantes en los pisos 1 --> 5  ====== */
                 int CNpisos = NPpiso1 + NPpiso2 + NPpiso3 + NPpiso4 + NPpiso5;
 
-                /*====== Bajando personas del piso seleccionado a la planta baja ====== */
+                /*====== Bajando personas de todos los pisos a la planta baja ====== */
                 int tanda = 0, diferencia = 0;
                 int tandaPersonas = CNpisos + 5;
                 while (tandaPersonas > 0) {
@@ -330,6 +330,11 @@ public class Main {
                 NPpiso5 = 0;
                 System.out.println(tanda + " personas bajadas. " + PB + " personas en la planta baja.");
             } else if (opcion == 5) {
+                /*====== Suma de todos los ocupantes en los pisos 1 --> 5  ====== */
+                int CNpisos = NPpiso1 + NPpiso2 + NPpiso3 + NPpiso4 + NPpiso5;
+
+                System.out.println("Hay " + CNpisos + " perosonas en todo el hotel y han salido " + PB + " personas a lo largo de la jornada.");
+
 
             } else if (opcion == 6) {
                 System.out.print("¡Nos vemos!!");
@@ -340,4 +345,3 @@ public class Main {
     }
 
 }
-
