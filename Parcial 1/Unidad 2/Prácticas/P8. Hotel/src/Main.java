@@ -143,6 +143,36 @@ public class Main {
                 }
 
             } else if (opcion == 2) {
+                /*====== Numero de piso ====== */
+                int nPiso = 0;
+                boolean vfPiso = false;
+                /*====== Solicitando datos ====== */
+                System.out.print("Ingresa el piso que deseas consultar: ");
+                nPiso = lector.nextInt();
+
+                /*====== Verificando si el piso ingresado existe ====== */
+                while (!vfPiso) {
+                    if (nPiso > 5) {
+                        System.out.print("El numero de piso ingresado no existe, intenta de nuevo: ");
+                        nPiso = lector.nextInt();
+                    } else {
+                        vfPiso = true;
+                    }
+                }
+
+                /*====== Mostrando numero de personas por piso ====== */
+                if (nPiso == 1){
+                    System.out.println("Hay " + NPpiso1 + " personas en el piso " + nPiso);
+                }else if (nPiso == 2){
+                    System.out.println("Hay " + NPpiso2 + " personas en el piso " + nPiso);
+                }else if (nPiso == 3){
+                    System.out.println("Hay " + NPpiso3 + " personas en el piso " + nPiso);
+                }else if (nPiso == 4){
+                    System.out.println("Hay " + NPpiso4 + " personas en el piso " + nPiso);
+                }else if (nPiso == 5){
+                    System.out.println("Hay " + NPpiso5 + " personas en el piso " + nPiso);
+                }
+
 
             } else if (opcion == 3) {
 
