@@ -3,10 +3,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
 
-        // Lector de datos de entrada
+public class Arraylist {
+    public static void main(String[] args) {
+// Lector de datos de entrada
         Scanner scanner = new Scanner(System.in);
 
         //================ PIDIENDO DATOS ================
@@ -54,7 +54,7 @@ public class Main {
         }
         //Imprimiendo columnas y relleno de filas
         for (int i = 1; i <= tableroFilas; i++) {
-            for (int j = 1; j <= tableroFilas; j++) {
+            for (int j = 1; j <= tableroColumnas; j++) {
                 if (j <= 1) {
                     // Si i es de solo un dígito se le concatena un 0
                     if (i < 10) {
@@ -62,26 +62,7 @@ public class Main {
                     }
                     System.out.print(i + " ");
                 }
-
-                // Imprimiendo casillas de tablero dependiendo la diferencia entre columnas y filas
-                if (tableroColumnas == tableroFilas) {
-                    System.out.print("*" + "  ");
-                } else if (tableroColumnas > tableroFilas) {
-                    System.out.print("*" + "  ");
-                    if (j == tableroFilas) {
-                        int dif = tableroColumnas - tableroFilas;
-                        for (int k = 1; k <= dif; k++) {
-                            System.out.print("*" + "  ");
-                        }
-                    }
-                } else {
-                    if (j == tableroFilas) {
-                        int dif = tableroFilas - tableroColumnas;
-                        for (int k = 1; k <= dif; k++) {
-                            System.out.print("*" + "  ");
-                        }
-                    }
-                }
+                System.out.print("*" + "  ");
             }
             //Salto de fila
             System.out.println("");
@@ -111,13 +92,13 @@ public class Main {
             ArrayList<Integer> posicionP2X = new ArrayList<>();
             System.out.println("\nJugador 2, Ingresa la posicion de tus barcos");
             for (int i = 1; i <= nbarcos; i++) {
-                posicionP2Y.add(i - 1, (int)(Math.random()*tableroColumnas+1));
-                posicionP2X.add(i - 1, (int)(Math.random()*tableroFilas+1));
+                posicionP2Y.add(i - 1, (int) (Math.random() * tableroColumnas + 1));
+                posicionP2X.add(i - 1, (int) (Math.random() * tableroFilas + 1));
             }
             Iterator<Integer> iteratorY = posicionP2Y.iterator();
             Iterator<Integer> iteratorX = posicionP2X.iterator();
             int j = 1;
-            while(iteratorY.hasNext() && iteratorX.hasNext()){
+            while (iteratorY.hasNext() && iteratorX.hasNext()) {
                 System.out.println("Juagor 2 ingresó:");
                 System.out.println("Barco " + j);
                 System.out.println("Y: " + iteratorY.next());
@@ -149,12 +130,12 @@ public class Main {
                     tiradaP1Y.add(i, scanner.nextInt());
                     System.out.print("X:");
                     tiradaP1X.add(i, scanner.nextInt());
-                    if (posicionP2Y.contains(tiradaP1Y.get(i)) && posicionP2X.contains(tiradaP1X.get(i))){
+                    if (posicionP2Y.contains(tiradaP1Y.get(i)) && posicionP2X.contains(tiradaP1X.get(i))) {
                         System.out.println("¡¡BOOOMMMM!!! Barco derribado por jugador 1");
                         puntajeP1++;
-                        System.out.println("Puntaje acutual: " + puntajeP1 + "/" + nbarcos );
+                        System.out.println("Puntaje acutual: " + puntajeP1 + "/" + nbarcos);
 
-                        if (puntajeP1 == nbarcos){
+                        if (puntajeP1 == nbarcos) {
                             System.out.println("¡¡¡FELICIDADESS!!!! Jugador 1 ha ganado");
                             estadoJuego = true;
                         }
@@ -163,16 +144,16 @@ public class Main {
 
                 if (!estadoJuego) {
                     System.out.println("Turno jugador 2");
-                    tiradaP2Y.add(i,(int)(Math.random()*tableroColumnas+1));
+                    tiradaP2Y.add(i, (int) (Math.random() * tableroColumnas + 1));
                     System.out.println("Jugador 2 tiró en Y: " + tiradaP2Y.get(i));
-                    tiradaP2X.add(i, (int)(Math.random()*tableroFilas+1));
+                    tiradaP2X.add(i, (int) (Math.random() * tableroFilas + 1));
                     System.out.println("Jugador 2 tiró en X: " + tiradaP2X.get(i));
-                    if (posicionP1Y.contains(tiradaP2Y.get(i)) && posicionP1X.contains(tiradaP2X.get(i))){
+                    if (posicionP1Y.contains(tiradaP2Y.get(i)) && posicionP1X.contains(tiradaP2X.get(i))) {
                         System.out.println("¡¡BOOOMMMM!!! Barco derribado por jugador 2");
                         puntajeP2++;
-                        System.out.println("Puntaje acutual: " + puntajeP2 + "/" + nbarcos );
+                        System.out.println("Puntaje acutual: " + puntajeP2 + "/" + nbarcos);
 
-                        if (puntajeP2 == nbarcos){
+                        if (puntajeP2 == nbarcos) {
                             System.out.println("¡¡¡FELICIDADESS!!!! Jugador 2 ha ganado");
                             estadoJuego = true;
                         }
@@ -206,6 +187,5 @@ public class Main {
 //            }
 //            System.out.print("\n");
 //        }
-
     }
 }
